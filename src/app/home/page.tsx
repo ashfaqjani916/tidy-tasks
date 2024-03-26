@@ -1,5 +1,5 @@
 import Sidebar from '@/components/Sidebar'
-import Tasks from '@/components/Tasks'
+import Tasks from '@/app/components/components/Tasks'
 import React from 'react'
 
 const page = () => {
