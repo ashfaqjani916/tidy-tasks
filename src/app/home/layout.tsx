@@ -1,3 +1,5 @@
+import Sidebar from '@/components/Sidebar'
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -5,7 +7,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Sidebar />
+        {children}
+      </body>
     </html>
   )
 }
