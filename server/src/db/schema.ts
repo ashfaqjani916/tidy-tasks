@@ -17,5 +17,4 @@ export const tasks = pgTable("tasks", {
   description : varchar("description"),
   due_date: timestamp("due_date"),
   completed : boolean("completed")
-  
 });
