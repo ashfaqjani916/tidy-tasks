@@ -14,8 +14,8 @@ const Today = () => {
         </Button>
       </div>
       <div className=" mx-20 mt-5 p-4 overflow-auto">
-        <Item name="finish this porject" />
-        <Item name="finish this porject" />
+        <Item name="Loading design" description="design some questions for the prediction thingy" due={new Date(2024, 6, 21)} category="designing" />
+        <Item name="finish this porject" description="this is an important task dude" due={new Date(2024, 6, 18)} category="coding" />
       </div>
     </div>
   )
