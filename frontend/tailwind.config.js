@@ -17,9 +17,6 @@ module.exports = {
       },
     },
     extend: {
-      fontFamily:{
-        custom: ["roboto","Roboto"]
-      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
