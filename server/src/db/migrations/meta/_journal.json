@@ -22,6 +22,20 @@
       "when": 1718107493858,
       "tag": "0003_clear_shriek",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1719855088475,
+      "tag": "0004_lame_nehzno",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1719855142624,
+      "tag": "0005_flaky_vengeance",
+      "breakpoints": true
     }
   ]
 }

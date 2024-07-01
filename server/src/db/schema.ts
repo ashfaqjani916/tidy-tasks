@@ -3,11 +3,15 @@ import { pgTable, uuid ,varchar, timestamp} from "drizzle-orm/pg-core"
 
 
 export const user = pgTable("user", {
-  id : uuid("id").primaryKey().defaultRandom(),
+  id : uuid("id").primaryKey(),
   username : varchar("username", {length:255}).notNull(),
-  password_hash : varchar("password_hast" ,{length:255}),
-  email : varchar("email").notNull()
+  email : varchar("email").notNull(),
+  name : varchar("name",{length:255}),
+  profileImg : varchar("profileImg"),
+  info : varchar("info"),
 });
+
+
 
 
 export const tasks = pgTable("tasks", {

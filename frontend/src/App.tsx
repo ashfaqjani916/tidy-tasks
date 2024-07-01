@@ -4,6 +4,7 @@ import Login from './pages/Login'
 import Sidebar from './components/Sidebar'
 import Tasks from './components/views/Tasks'
 import Projects from './components/views/Projects'
+import { GoogleOAuthProvider } from '@react-oauth/google'
 
 function App() {
   return (

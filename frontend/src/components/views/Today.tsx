@@ -14,7 +14,6 @@ const Today = () => {
       <h1 className=" text-3xl mt-10 mx-20 pb-5 border-b-2 border-gray-00 ">Today</h1>
       <div className="flex gap-4 mx-20 mt-4">
         <Button className=" bg-blue-900 hover:bg-blue-700 rounded-lg" onClick={inpHandle}>
-          {' '}
           + New task
         </Button>
         <Button className=" bg-white text-black hover:bg-slate-300 rounded-lg">
