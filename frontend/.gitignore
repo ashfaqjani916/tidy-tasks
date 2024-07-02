@@ -10,6 +10,11 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+
+# dotenv environment variables file
+.env
+.env.test
+.env.production
 *.local
 
 # Editor directories and files
