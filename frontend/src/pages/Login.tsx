@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 
 const Login = () => {
   const [error, setError] = useState<string | null>(null)
+  console.log(error)
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
