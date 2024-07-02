@@ -4,7 +4,8 @@ import Login from './pages/Login'
 import Sidebar from './components/Sidebar'
 import Tasks from './components/views/Tasks'
 import Projects from './components/views/Projects'
-import { GoogleOAuthProvider } from '@react-oauth/google'
+
+import Welcome from './pages/Welcome'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/tasks" element={<Tasks />} />
             <Route path="/projects" element={<Projects />} />
           </Route>
+          <Route path="/welcome" element={<Welcome />} />
         </Routes>
       </Router>
     </div>

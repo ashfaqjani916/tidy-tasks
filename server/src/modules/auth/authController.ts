@@ -2,9 +2,12 @@ import { Request, Response } from "express";
 import {
   fetchGoogleAccessToken,
   fetchGoogleUserInfo,
+  generateJWTToken,
+  getUserByEmail,
   // generateJWTToken,
   // getUserByEmail,
 } from "./authService";
+import { addUser } from "../addUser/addUser";
 require('dotenv').config();
 
 const frontendUrl = process.env.CLIENT_BASE_URL as string;
@@ -18,7 +21,7 @@ export const googleOAuthHandler = async (req: Request, res: Response) => {
     }
 
     const { code } = req.query;
-    console.log(code);
+
     //we are recieving the response 
 
     if (!code) {
@@ -27,33 +30,38 @@ export const googleOAuthHandler = async (req: Request, res: Response) => {
     }
 
     const tokenResponse = await fetchGoogleAccessToken(code as string);
-    console.log("we are getting user resoonse", tokenResponse.data.access_token);
+
     
     const userData = await fetchGoogleUserInfo(tokenResponse.data.access_token);
-    res.send(userData.data)
-    console.log("...... successfully printed user data")
-    // const user = await getUserByEmail(userData.data.email);
+    
+    console.log("...... successfully printed user data",userData.data)
+    
+     const user = await getUserByEmail(userData.data.email);
+
 
     //from this this above data we have to check in the database if the user is present 
+
+
     
     //if the user is present then redirect to home page 
 
     //if the user is not present then redirect him to welcome page
 
+    
 
-
-    // if (!user) {
+    if (!user) {
+      addUser(userData.data);
+      return res.redirect(`${frontendUrl}/welcome`);
       
-    //   return res.redirect(`${frontendUrl}/welcome`);
-    // }
+    }
 
-    // const currentUser = user;
-    // const jwtToken = await generateJWTToken(currentUser);
-    // let redirectURL = `${frontendUrl}/`;
+    const currentUser = user;
+    const jwtToken = await generateJWTToken(currentUser);
+    let redirectURL = `${frontendUrl}/`;
 
     
 
-    // return res.redirect(`${redirectURL}?token=${jwtToken}`);
+    return res.redirect(`${redirectURL}?token=${jwtToken}`);
   } catch (error) {
     console.log("this is being printed")
     const errorMessage = "Error handling OAuth callback: " + error;

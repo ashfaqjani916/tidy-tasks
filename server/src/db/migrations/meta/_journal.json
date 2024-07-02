@@ -3,38 +3,17 @@
   "dialect": "pg",
   "entries": [
     {
+      "idx": 0,
+      "version": "5",
+      "when": 1719908437490,
+      "tag": "0000_bored_shotgun",
+      "breakpoints": true
+    },
+    {
       "idx": 1,
       "version": "5",
-      "when": 1718103980539,
-      "tag": "0001_confused_morlun",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1718104706124,
-      "tag": "0002_thankful_randall_flagg",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "5",
-      "when": 1718107493858,
-      "tag": "0003_clear_shriek",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "5",
-      "when": 1719855088475,
-      "tag": "0004_lame_nehzno",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "5",
-      "when": 1719855142624,
-      "tag": "0005_flaky_vengeance",
+      "when": 1719922974703,
+      "tag": "0001_nervous_metal_master",
       "breakpoints": true
     }
   ]

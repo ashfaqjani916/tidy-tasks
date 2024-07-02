@@ -1,6 +1,6 @@
 {
-  "id": "ac9ea1a1-468d-4c2c-94d7-d20f347866b4",
-  "prevId": "69b2b035-5bb2-46b4-a1c7-deb808040e17",
+  "id": "69b2b035-5bb2-46b4-a1c7-deb808040e17",
+  "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
   "tables": {
@@ -10,7 +10,7 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "varchar",
+          "type": "uuid",
           "primaryKey": true,
           "notNull": true
         },
