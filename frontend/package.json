@@ -27,6 +27,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
+    "framer-motion": "^11.2.12",
     "gapi-script": "^1.2.0",
     "jwt-decode": "^4.0.0",
     "lucide-react": "^0.395.0",
