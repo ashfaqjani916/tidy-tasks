@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { FaGoogle } from 'react-icons/fa'
 import { Meteors } from '../components/ui/meteors'
 
-// import 'dotenv/config'
+
 
 const Login = () => {
   const [error, setError] = useState<string | null>(null)
@@ -21,12 +21,12 @@ const Login = () => {
   }, [])
   const handleGoogleLogin = () => {
     const params = new URLSearchParams({
-      client_id: '',
-      redirect_uri: '',
+      client_id: import.meta.env.VITE_CLIENT_ID as string,
+      redirect_uri: import.meta.env.VITE_REDIRECT_URI as string,
       response_type: 'code',
       scope: 'https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/userinfo.email ',
       state: new URLSearchParams({
-        redirect_uri: '',
+        redirect_uri: import.meta.env.VITE_REDIRECT_URI as string,
       }).toString(),
     })
     window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?${params}`

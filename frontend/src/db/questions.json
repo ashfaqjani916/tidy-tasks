@@ -1,0 +1,40 @@
+{
+  "allquestions":[
+    {
+      "question": "When do you typically feel most productive?",
+      "options": ["Early morning", "Late morning", "Afternoon", "Evening"]
+    },
+    {
+      "question": "How do you prefer to structure your workday?",
+      "options": ["Long, uninterrupted blocks of focused work", "Short bursts of focused work with frequent breaks", "A mix of both", "It varies depending on the task"]
+    },
+    {
+      "question": "How do you handle distractions while working?",
+      "options": ["I find it difficult to concentrate when there are distractions", "I can work effectively with minimal distractions", "I often use short distractions as breaks", "I thrive in a busy, stimulating environment"]
+    },
+    {
+      "question": "How do you approach task completion?",
+      "options": ["I prefer to complete one task at a time", "I like to work on multiple tasks simultaneously", "I switch between tasks based on priority", "My approach depends on the task complexity"]
+    },
+    {
+      "question": "How important is a structured work environment to your productivity?",
+      "options": ["Extremely important", "Somewhat important", "Not very important", "I prefer a chaotic environment"]
+    },
+    {
+      "question": "How do you handle unexpected interruptions to your work?",
+      "options": ["I find them very disruptive", "I can easily adapt to changes in my schedule", "I prefer to avoid interruptions altogether", "I use interruptions as a chance to rest"]
+    },
+    {
+      "question": "How do you prefer to learn new information or skills?",
+      "options": ["Visual aids and demonstrations", "Verbal explanations and discussions", "Hands-on experience", "A combination of all methods"]
+    },
+    {
+      "question": "How do you typically prioritize tasks?",
+      "options": ["By deadline", "By importance", "By project", "A combination of factors"]
+    },
+    {
+      "question": "Do you prefer working alone or in a team environment?",
+      "options": ["Primarily alone", "Primarily in a team", "A balance of both", "It depends on the project"]
+    }
+  ]
+}
