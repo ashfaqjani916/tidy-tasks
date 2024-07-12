@@ -18,9 +18,9 @@ interface GoogleAccessTokenResponse {
 }
 
 export const fetchGoogleAccessToken = async (code: string) => {
-  const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
-  const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
-  const REDIRECT_URI = process.env.GOOGLE_REDIRECT_URL;
+  const CLIENT_ID = process.env.CLIENT_ID;
+  const CLIENT_SECRET = process.env.CLIENT_SECRET;
+  const REDIRECT_URI = process.env.REDIRECT_URI;
 
   if (!CLIENT_ID || !CLIENT_SECRET || !REDIRECT_URI) {
     throw new Error("Google OAuth is not properly configured");

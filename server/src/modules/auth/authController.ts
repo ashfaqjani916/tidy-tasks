@@ -11,6 +11,7 @@ import { addUser } from "../addUser/addUser";
 require('dotenv').config();
 
 const frontendUrl = process.env.CLIENT_BASE_URL as string;
+console.log("this is being printed",frontendUrl);
 
 export const googleOAuthHandler = async (req: Request, res: Response) => {
   try {
