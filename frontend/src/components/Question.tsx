@@ -20,12 +20,13 @@ const Question: React.FC<QuestionProps> = ({ question, onAnswerSelected }) => {
   };
 
   return (
-    <div>
-      <p>{question.question}</p>
+    <div className='  flex flex-col rounded-lg   font-mono gap-3'>
+      <p className='text-md'>{question.question}</p>
       <div>
         {question.options.map((option: any, index: any) => (
-          <div key={index}>
+          <div className='my-1 ' key={index}>
             <input
+              className=''
               type="radio"
               value={option}
               checked={selectedAnswer === option}
