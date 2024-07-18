@@ -1,12 +1,25 @@
 import { useState } from "react";
 import Question from "../components/Question"
 import { allquestions } from "../db/questions.json";
+import axios from "axios";
 
-const answers = [];
+const answers: any = [];
 
 const handleAnswer = (answer: string) => {
   answers.push(answer);
   // Implement logic to check if the answer is correct
+};
+
+const handleSubmit = () => {
+  console.log(answers);
+  // Navigate to the home page
+  const url = import.meta.env.VITE_BACKEND_URL + "/api/preferences";
+  axios.post(url, { answers }).then((res) => {
+    console.log(res);
+  }).catch((err) => {
+    console.log(err);
+  });
+  // window.location.href = "/";
 };
 
 const Welcome = () => {
@@ -48,7 +61,7 @@ const Welcome = () => {
               </span>
               <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">Next</span>
             </button>
-          ) : <button className="relative inline-block text-lg group ml-52 mt-5 md:ml-[500px]">
+          ) : <button onClick={handleSubmit} className="relative inline-block text-lg group ml-52 mt-5 md:ml-[500px]">
             <span className="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
               <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
               <span className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-gray-900 group-hover:-rotate-180 ease"></span>
