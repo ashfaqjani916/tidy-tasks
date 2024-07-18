@@ -57,7 +57,7 @@ const Icon = styled(AiOutlineLoading3Quarters)`
 
 const HoldTight: React.FC = () => {
   return (
-    <Container>
+    <Container className='w-full'>
       <Icon />
       <Message>Hold tight, we are working on it.</Message>
     </Container>

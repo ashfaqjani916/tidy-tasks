@@ -1,9 +1,10 @@
 import HoldTight from '../Holdtight'
+import Sidebar from '../Sidebar'
 
 const Projects = () => {
   return (
-    <div className=" border-2 w-[90rem]   ">
-      {' '}
+    <div className="w-full border-2 flex">
+      <Sidebar />
       <HoldTight />
     </div>
   )
