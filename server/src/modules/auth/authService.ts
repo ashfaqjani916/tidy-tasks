@@ -10,11 +10,16 @@ const TOKEN_EXPIRATION = "7d";
 const SCOPES = [
   "https://www.googleapis.com/auth/userinfo.profile",
   "https://www.googleapis.com/auth/userinfo.email",
+  'https://www.googleapis.com/auth/calendar.readonly',
+  'https://www.googleapis.com/auth/drive.metadata.readonly'
 ];
 
 interface GoogleAccessTokenResponse {
   access_token: string;
-  refresh_token: string;
+  expires_in: number;
+  token_type: string;
+  refresh_token?: string;
+  scope: string;
 }
 
 export const fetchGoogleAccessToken = async (code: string) => {

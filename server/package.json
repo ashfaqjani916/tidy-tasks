@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
     "@google/generative-ai": "^0.14.1",
     "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20.12.10",
@@ -23,12 +24,15 @@
     "drizzle-orm": "^0.30.10",
     "expre": "^0.1.1",
     "express": "^4.19.2",
+    "googleapis": "^105.0.0",
     "jsonwebtoken": "^9.0.2",
     "mkcert": "^3.2.0",
+    "pb-util": "^1.0.3",
     "pg": "^8.11.5",
     "postgres": "^3.4.4",
     "tsx": "^4.9.3",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "winston": "^3.13.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

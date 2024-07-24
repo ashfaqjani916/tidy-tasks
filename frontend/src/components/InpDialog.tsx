@@ -19,6 +19,17 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover'
 import { v4 as uuidv4 } from 'uuid'
+import tasks from "../db/tasks.json"
+
+interface Task {
+  id: string;
+  taskname: string;
+  description: string;
+  due: string;
+  category: string;
+}
+
+// const tasksData: Task[] = tasks as Task[];
 
 // import { toast } from './ui/use-toast'
 
@@ -40,8 +51,9 @@ const formSchema = z.object({
   category: z.string(),
 })
 
-const InpDialog = () => {
+const InpDialog = (state: any) => {
   const inpRef = useRef<HTMLInputElement>(null)
+
   // const [name, setName] = useState('')
   // const [description, setDescription] = useState('')
   // const [date, setDate] = useState('')
@@ -60,10 +72,36 @@ const InpDialog = () => {
     },
   })
 
+  const updateTasksJson = async () => {
+    // // Convert tasks array to JSON string
+    // const tasksJson = JSON.stringify(tasks);
+
+    // // Write tasks JSON string to the tasks.json file
+    // // You can use any method or library to write the file, such as fs.writeFile in Node.js
+    // // Here's an example using the browser's File System API:
+    // const fileHandle = await 
+    // const writable = await fileHandle.createWritable();
+    // await writable.write(tasksJson);
+    // await writable.close();
+  };
+
+
+
   //  submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    const id = uuidv4()
-    console.log(id, values)
+    let task: Task = {
+      id: uuidv4(),
+      taskname: values.taskname,
+      description: values.description,
+      due: values.due as unknown as string,
+      category: values.category,
+    }
+
+    tasks.tasks.push(task);
+    updateTasksJson();
+    console.log(tasks);
+    state.state()
+
   }
   return (
     <>
