@@ -1,6 +1,6 @@
-# TaskTide
+# Tidy Tasks
 
-TaskTide is a task management application that helps new users schedule tasks based on their workflow and available time slots. This app uses React with TypeScript for the frontend, a Node.js/Express server for the backend, and PostgreSQL with Drizzle ORM for the database. It integrates with the Google Calendar API and the Gemini API to generate appropriate times for tasks automatically.
+Tidy Tasks is a task management application that helps new users schedule tasks based on their workflow and available time slots. This app uses React with TypeScript for the frontend, a Node.js/Express server for the backend, and PostgreSQL with Drizzle ORM for the database. It integrates with the Google Calendar API and the Gemini API to generate appropriate times for tasks automatically.
 
 ## Features
 
@@ -25,7 +25,7 @@ Make sure you have the following installed on your machine:
 1. **Clone the repository:**
     ```bash
     git clone https://github.com/ashfaqjani916/task-tide
-    cd tasktide
+    cd tidy-tasks
     ```
 
 2. **Backend Setup:**
@@ -86,7 +86,7 @@ Make sure you have the following installed on your machine:
     - Connect your Google Calendar to fetch available time slots.
 
 4. **Task Scheduling:**
-    - Based on the answers and available time slots, TaskTide will automatically schedule tasks using the Gemini API.
+    - Based on the answers and available time slots, Tidy Tasks will automatically schedule tasks using the Gemini API.
 
 ## Contributing
 
