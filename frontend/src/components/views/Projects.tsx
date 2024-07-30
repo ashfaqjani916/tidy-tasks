@@ -1,10 +1,10 @@
+import TemporaryDrawer from '../Drawer'
 import HoldTight from '../Holdtight'
-import Sidebar from '../Sidebar'
 
 const Projects = () => {
   return (
     <div className="w-full border-2 flex">
-      <Sidebar />
+      <TemporaryDrawer />
       <HoldTight />
     </div>
   )

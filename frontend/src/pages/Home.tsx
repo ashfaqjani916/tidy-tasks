@@ -1,11 +1,12 @@
 
-import Sidebar from '../components/Sidebar'
+import TemporaryDrawer from '../components/Drawer'
+
 import Today from '../components/views/Today'
 
 const Home = () => {
   return (
     <div className=" flex font-custom">
-      <Sidebar />
+      <TemporaryDrawer />
       <Today />
     </div>
   )

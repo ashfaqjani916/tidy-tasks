@@ -1,12 +1,12 @@
+import TemporaryDrawer from '../Drawer'
 import Item from '../Item'
-import Sidebar from '../Sidebar'
 import { Button } from '../ui/button'
 import { CiFilter } from 'react-icons/ci'
 
 const Tasks = () => {
   return (
     <div className='flex'>
-      <Sidebar />
+      <TemporaryDrawer />
       <div className="">
         <h1 className=" text-3xl mt-10 md:mx-20 pb-5 border-b-2 border-gray-00 ">All tasks</h1>
         <div className="flex gap-4 md:mx-20 mt-4">
