@@ -11,8 +11,8 @@ import ListItemText from '@mui/material/ListItemText';
 
 import { FaCalendarCheck, FaTasks } from 'react-icons/fa';
 import { AiOutlineProject } from 'react-icons/ai';
-import { GoSidebarCollapse } from "react-icons/go";
 import Hello from './Hello';
+import { FiMenu } from "react-icons/fi";
 
 
 
@@ -60,8 +60,8 @@ export default function TemporaryDrawer() {
   );
 
   return (
-    <div>
-      <Button onClick={toggleDrawer(true)} ><GoSidebarCollapse className='h-8 w-8 mt-3' /></Button>
+    <div className=' w-fit bg-transparent '>
+      <Button onClick={toggleDrawer(true)} ><FiMenu className='h-12 w-12 text-primary ' /></Button>
       <Drawer open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>

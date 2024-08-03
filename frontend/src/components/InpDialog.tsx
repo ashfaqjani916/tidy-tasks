@@ -15,7 +15,7 @@ import { cn } from '../lib/utils'
 
 import { Calendar } from './ui/calendar'
 import { Textarea } from './ui/textarea'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
+// import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select'
 
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover'
 import { v4 as uuidv4 } from 'uuid'
@@ -159,7 +159,7 @@ const InpDialog = (state: any) => {
                   )}
                 />
 
-                <FormField
+                {/* <FormField
                   control={form.control}
                   name="category"
                   render={({ field }) => (
@@ -180,12 +180,14 @@ const InpDialog = (state: any) => {
                       <FormMessage />
                     </FormItem>
                   )}
-                />
+                /> */}
               </div>
+              <div className='flex gap-5'>
 
-              <Button type="submit" className="mr-5">
-                Add
-              </Button>
+                <Button type="submit" className="mr-5">
+                  Add
+                </Button>
+              </div>
             </div>
           </form>
         </Form>

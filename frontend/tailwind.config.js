@@ -23,6 +23,9 @@ module.exports = {
       fontFamily:{
         handlee: ['Handlee', 'cursive'],
       },
+      colors:{
+        primary:"#4D89AD"
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

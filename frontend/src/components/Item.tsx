@@ -1,7 +1,7 @@
 import { Checkbox } from './ui/checkbox'
 import { useState } from 'react'
 import { CiCalendar } from 'react-icons/ci'
-import { TbCategory2 } from 'react-icons/tb'
+// import { TbCategory2 } from 'react-icons/tb'
 
 interface props {
   name: string
@@ -30,10 +30,10 @@ const Item = (task: props) => {
                 <CiCalendar className=" text-xl font-bold" />
                 {date[1]} {date[2]}, {date[3]}
               </h6>
-              <p className="flex items-center gap-2  text-purple-500 bg-purple-100 px-2  rounded-lg">
+              {/* <p className=" flex items-center gap-2  text-purple-500 bg-purple-100 px-2  rounded-lg">
                 <TbCategory2 />
                 {task.category}
-              </p>
+              </p> */}
             </div>
           </div>
         ) : (
