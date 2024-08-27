@@ -1,12 +1,31 @@
 import { Button } from '../components/ui/button'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, } from 'react'
 import { FaGoogle } from 'react-icons/fa'
-import { Meteors } from '../components/ui/meteors'
+// import { Meteors } from '../components/ui/meteors'
+
+// import AuthContext from '../context/AuthProvider'
+// import useAuth from '../hooks/useAuth'
+// import { useNavigate, Link, useLocation } from 'react-router-dom'
 
 
+
+// interface AuthContextType {
+//   user: any; 
+//   setUser: (user: any) => void; 
+// }
+
+// const useQuery = () => {
+//   return new URLSearchParams(useLocation().search);
+// };
 
 const Login = () => {
   const [error, setError] = useState<string | null>(null)
+  // const { setUser } = useAuth();
+  // const navigate = useNavigate();
+  // const location = useLocation();
+
+  // const from = location.state?.from?.pathname || '/';
+
   console.log(error)
 
   useEffect(() => {
@@ -19,7 +38,11 @@ const Login = () => {
 
     window.history.replaceState({}, '', window.location.pathname)
   }, [])
+
   const handleGoogleLogin = () => {
+
+    console.log("the handle function is called")
+
     const params = new URLSearchParams({
       client_id: import.meta.env.VITE_CLIENT_ID as string,
       redirect_uri: import.meta.env.VITE_REDIRECT_URI as string,
@@ -29,7 +52,14 @@ const Login = () => {
         redirect_uri: import.meta.env.VITE_REDIRECT_URI as string,
       }).toString(),
     })
+
+    // const query = useQuery();
+    // const token = query.get('token');
+    // setUser(token);
+
     window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?${params}`
+
+
   }
 
   return (
@@ -41,7 +71,7 @@ const Login = () => {
           <Button onClick={handleGoogleLogin} className="bg-[#4D89AD] h-12 font-bold flex items-center gap-4">
             <FaGoogle />
             Continue with Google
-            <Meteors number={40} />
+            {/* <Meteors number={40} /> */}
           </Button>
         </div>
       </div>
@@ -60,3 +90,4 @@ const Login = () => {
 }
 
 export default Login
+

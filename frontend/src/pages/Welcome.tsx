@@ -7,7 +7,6 @@ const answers: any = [];
 
 const handleAnswer = (answer: string) => {
   answers.push(answer);
-  // Implement logic to check if the answer is correct
 };
 
 const handleSubmit = () => {

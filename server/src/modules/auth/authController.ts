@@ -59,12 +59,9 @@ export const googleOAuthHandler = async (req: Request, res: Response) => {
     const currentUser = user;
     const jwtToken = await generateJWTToken(currentUser);
     let redirectURL = `${frontendUrl}/`;
-
-    
-
     return res.redirect(`${redirectURL}?token=${jwtToken}`);
+    
   } catch (error) {
-    console.log("this is being printed")
     const errorMessage = "Error handling OAuth callback: " + error;
     console.error(errorMessage);
     return res.redirect(`${frontendUrl}/login?error=${errorMessage}`);

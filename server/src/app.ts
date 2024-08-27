@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.listen(port,()=>{
-  console.log("The app is running on port 8000");
+  console.log("The app is running on port",port);
 })
 
 app.get('/',(req:Request, res: Response)=>{

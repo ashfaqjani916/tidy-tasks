@@ -13,7 +13,7 @@ export const addUser = async(User :User)=>{
 
  await db.insert(user).values({
   id: User.id,
-  username:User.name as string,
+  username:User.email.split('@')[0] as string,
   email: User.email,
   name:User.name,
   profileImg: User.picture,

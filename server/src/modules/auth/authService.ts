@@ -110,3 +110,31 @@ export const generateJWTToken = async (user: User): Promise<string> => {
     throw new Error("Error generating JWT token" + error);
   }
 };
+
+
+export const generateRefreshToken = async (user: User): Promise<string> => {
+  const jwtSecret = process.env.JWT_REFRESH_SECRET;
+  
+
+  if (!jwtSecret) {
+    throw new Error("JWT refresh Secret is not properly configured");
+  }
+
+  try {
+    const token = jwt.sign(
+      {
+        id: user.id,
+        displayName: user.name,
+        emailAddress: user.email,
+        photoURL: user.profileImg,
+      },
+      jwtSecret,
+      {
+        expiresIn: TOKEN_EXPIRATION,
+      }
+    );
+    return token;
+  } catch (error) {
+    throw new Error("Error generating refresh token" + error);
+  }
+};

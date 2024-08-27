@@ -7,6 +7,8 @@ import Projects from './components/views/Projects'
 
 import Welcome from './pages/Welcome'
 
+import RequireAuth from './components/RequireAuth'
+
 function App() {
   return (
     <div className="flex w-screen">
@@ -14,12 +16,12 @@ function App() {
         <Routes>
           {' '}
           <Route path="/login" element={<Login />} />
-
+          {/* <Route element={<RequireAuth />}> */}
           <Route path="/" element={<Home />} />
           <Route path="/tasks" element={<Tasks />} />
           <Route path="/projects" element={<Projects />} />
-
           <Route path="/welcome" element={<Welcome />} />
+          {/* </Route> */}
         </Routes>
       </Router>
     </div>

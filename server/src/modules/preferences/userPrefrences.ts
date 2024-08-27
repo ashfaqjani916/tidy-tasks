@@ -26,7 +26,7 @@ const prefrencesFunction = async (req:Request,res:Response)=>{
 
     await db.update(user).set({
       info: text
-    }).where(eq(user.id,"117321555173672589319"));
+    }).where(eq(user.id,"116083246879156316889"));
 
     res.status(200).json({message:"User preferences updated successfully"});
     
