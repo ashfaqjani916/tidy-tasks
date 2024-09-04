@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request,  Response } from "express";
 import {
   fetchGoogleAccessToken,
   fetchGoogleUserInfo,
@@ -11,6 +11,10 @@ import { addUser } from "../addUser/addUser";
 require('dotenv').config();
 
 const frontendUrl = process.env.CLIENT_BASE_URL as string;
+
+let access_tokenn 
+let refresh_tokenn
+let jwtTokennn :any
 
 
 export const googleOAuthHandler = async (req: Request, res: Response) => {
@@ -31,9 +35,13 @@ export const googleOAuthHandler = async (req: Request, res: Response) => {
     }
 
     const tokenResponse = await fetchGoogleAccessToken(code as string);
+    
 
     
     const userData = await fetchGoogleUserInfo(tokenResponse.data.access_token);
+
+
+
     
     console.log("...... successfully printed user data",userData.data)
     
@@ -58,6 +66,7 @@ export const googleOAuthHandler = async (req: Request, res: Response) => {
 
     const currentUser = user;
     const jwtToken = await generateJWTToken(currentUser);
+    jwtTokennn = jwtToken
     let redirectURL = `${frontendUrl}/`;
     return res.redirect(`${redirectURL}?token=${jwtToken}`);
     
@@ -67,3 +76,13 @@ export const googleOAuthHandler = async (req: Request, res: Response) => {
     return res.redirect(`${frontendUrl}/login?error=${errorMessage}`);
   }
 };
+
+
+export const SendCreds = (_req:Request,res:Response)=>{
+    res.send({
+      access_token:access_tokenn,
+      refresh_token:refresh_tokenn,
+      jwt_token:jwtTokennn 
+    })
+}
+

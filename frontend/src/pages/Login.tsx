@@ -1,26 +1,30 @@
+import axios from 'axios'
 import { Button } from '../components/ui/button'
 import { useState, useEffect, } from 'react'
 import { FaGoogle } from 'react-icons/fa'
 // import { Meteors } from '../components/ui/meteors'
 
-// import AuthContext from '../context/AuthProvider'
-// import useAuth from '../hooks/useAuth'
+
+import useAuth from '../hooks/useAuth'
 // import { useNavigate, Link, useLocation } from 'react-router-dom'
 
 
+interface SendCredsResponse {
+  access_token: any;
+  refresh_token: any;
+  jwt_token: any;
+}
 
-// interface AuthContextType {
-//   user: any; 
-//   setUser: (user: any) => void; 
-// }
 
 // const useQuery = () => {
 //   return new URLSearchParams(useLocation().search);
 // };
 
+const backend_url = import.meta.env.VITE_BACKEND_URL;
+
 const Login = () => {
   const [error, setError] = useState<string | null>(null)
-  // const { setUser } = useAuth();
+  const { setUser } = useAuth();
   // const navigate = useNavigate();
   // const location = useLocation();
 
@@ -39,7 +43,7 @@ const Login = () => {
     window.history.replaceState({}, '', window.location.pathname)
   }, [])
 
-  const handleGoogleLogin = () => {
+  const handleGoogleLogin = async () => {
 
     console.log("the handle function is called")
 
@@ -53,9 +57,13 @@ const Login = () => {
       }).toString(),
     })
 
-    // const query = useQuery();
-    // const token = query.get('token');
-    // setUser(token);
+    const response = await axios.get(`${backend_url}/api/getcreds`);
+
+    const userData: SendCredsResponse = response.data;
+
+    setUser(userData);
+
+    document.cookie = `accessToken=${userData.access_token}; refreshToken=${userData.refresh_token}; jwtToken=${userData.jwt_token};HttpOnly`;
 
     window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?${params}`
 
@@ -64,8 +72,8 @@ const Login = () => {
 
   return (
     <div className="flex h-screen w-screen  bg-contain justify-between " style={{ backgroundImage: "url('/bg.jpeg')" }}>
-      <div className="w-3/5 h-full flex items-center flex-col justify-center ">
-        <div className="h-[400px]  w-[300px] rounded-2xl bg-[#FFFFF0] shadow-xl  flex items-center flex-col justify-between p-5 py-20 ">
+      <div className="w-3/5 h-full flex items-center flex-c</div>ol justify-center ">
+        <div className="h-[400px]  w-[300px] rounded-2xl bg</div>-[#FFFFF0] shadow-xl  flex items-center flex-col justify-between p-5 py-20 ">
           <img className="h-[120px] w-[120px]" src="/logo.png" />
           <h1 className=" text-4xl font-handlee">Login</h1>
           <Button onClick={handleGoogleLogin} className="bg-[#4D89AD] h-12 font-bold flex items-center gap-4">

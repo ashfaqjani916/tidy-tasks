@@ -6,6 +6,8 @@ import prefrencesFunction from "./modules/preferences/userPrefrences";
 import { updateTasks } from "./modules/Tasks/updateTasks";
 import cors from "cors";
 import { scheduleTask } from "./modules/schedule/scheduleTask";
+import { fetchTasks } from "./modules/Tasks/fetchTasks";
+import { SendCreds } from "./modules/auth/authController";
 
 
 const port = process.env.PORT;
@@ -28,6 +30,8 @@ app.post('/api/preferences',prefrencesFunction);
 app.post('/api/updatetasks',updateTasks);
 app.use('/api/auth',authRoute);
 app.post('/api/scheduletask',scheduleTask);
+app.get('/api/fetchtasks',fetchTasks);
+app.get('/api/getcreds',SendCreds);
 
 export default app;
 
