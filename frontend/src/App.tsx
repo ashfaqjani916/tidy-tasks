@@ -16,12 +16,12 @@ function App() {
         <Routes>
           {' '}
           <Route path="/login" element={<Login />} />
-          {/* <Route element={<RequireAuth />}> */}
-          <Route path="/" element={<Home />} />
-          <Route path="/tasks" element={<Tasks />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/welcome" element={<Welcome />} />
-          {/* </Route> */}
+          <Route element={<RequireAuth />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/tasks" element={<Tasks />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/welcome" element={<Welcome />} />
+          </Route>
         </Routes>
       </Router>
     </div>

@@ -1,45 +1,23 @@
-import axios from 'axios'
+
 import { Button } from '../components/ui/button'
-import { useState, useEffect, } from 'react'
+import { useState, useEffect } from 'react'
 import { FaGoogle } from 'react-icons/fa'
-// import { Meteors } from '../components/ui/meteors'
 
 
-import useAuth from '../hooks/useAuth'
-// import { useNavigate, Link, useLocation } from 'react-router-dom'
 
 
-interface SendCredsResponse {
-  access_token: any;
-  refresh_token: any;
-  jwt_token: any;
-}
-
-
-// const useQuery = () => {
-//   return new URLSearchParams(useLocation().search);
-// };
-
-const backend_url = import.meta.env.VITE_BACKEND_URL;
 
 const Login = () => {
   const [error, setError] = useState<string | null>(null)
-  const { setUser } = useAuth();
-  // const navigate = useNavigate();
-  // const location = useLocation();
 
-  // const from = location.state?.from?.pathname || '/';
-
-  console.log(error)
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
-    const error = params.get('error')
-
-    if (error) {
-      setError(decodeURIComponent(error))
+    const errorr = params.get('error')
+    if (errorr) {
+      setError(decodeURIComponent(errorr))
     }
-
+    console.log(error)
     window.history.replaceState({}, '', window.location.pathname)
   }, [])
 
@@ -57,13 +35,6 @@ const Login = () => {
       }).toString(),
     })
 
-    const response = await axios.get(`${backend_url}/api/getcreds`);
-
-    const userData: SendCredsResponse = response.data;
-
-    setUser(userData);
-
-    document.cookie = `accessToken=${userData.access_token}; refreshToken=${userData.refresh_token}; jwtToken=${userData.jwt_token};HttpOnly`;
 
     window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?${params}`
 

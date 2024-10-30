@@ -68,7 +68,15 @@ export const googleOAuthHandler = async (req: Request, res: Response) => {
     const jwtToken = await generateJWTToken(currentUser);
     jwtTokennn = jwtToken
     let redirectURL = `${frontendUrl}/`;
-    return res.redirect(`${redirectURL}?token=${jwtToken}`);
+    
+  //   res.cookie('jwtToken', jwtToken, {
+  //     httpOnly: true,
+  //     secure: process.env.NODE_ENV === 'production', // Ensures the cookie is sent only over HTTPS in production
+  //     sameSite: 'strict', // Adjust this based on your app’s requirements (Strict, Lax, or None)
+  //     maxAge: 24 * 60 * 60 * 1000 // Token expires in 24 hours, for example
+  //   });
+  //  res.status(200).json({ message: 'Login successful' });
+   return res.redirect(`${redirectURL}?token=${jwtToken}`);
     
   } catch (error) {
     const errorMessage = "Error handling OAuth callback: " + error;
