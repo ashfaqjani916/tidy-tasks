@@ -8,14 +8,16 @@ import {
   // getUserByEmail,
 } from "./authService";
 import { addUser } from "../addUser/addUser";
+import { db } from "../../db/db";
+import { user } from "../../db/schema";
+import { eq } from "drizzle-orm";
 require('dotenv').config();
 
 const frontendUrl = process.env.CLIENT_BASE_URL as string;
 
-let access_tokenn 
+let access_tokenn :string
 let refresh_tokenn
 let jwtTokennn :any
-
 
 export const googleOAuthHandler = async (req: Request, res: Response) => {
   try {
@@ -39,13 +41,27 @@ export const googleOAuthHandler = async (req: Request, res: Response) => {
 
     
     const userData = await fetchGoogleUserInfo(tokenResponse.data.access_token);
+    access_tokenn = userData.data.access_token;
 
+    
+    const User = await getUserByEmail(userData.data.email);
+    if (!User) {
+      addUser(userData.data);
+      return res.redirect(`${frontendUrl}/welcome`);
+    }
+
+    if(tokenResponse.data.refresh_token)
+    {
+        await db.update(user).set({refresh_token:tokenResponse.data.refresh_token}).where(eq(user.email,userData.data.email))
+    }
+   
 
 
     
     console.log("...... successfully printed user data",userData.data)
+    console.log("......... token response",tokenResponse)
     
-     const user = await getUserByEmail(userData.data.email);
+    
 
 
     //from this this above data we have to check in the database if the user is present 
@@ -58,13 +74,9 @@ export const googleOAuthHandler = async (req: Request, res: Response) => {
 
     
 
-    if (!user) {
-      addUser(userData.data);
-      return res.redirect(`${frontendUrl}/welcome`);
-      
-    }
+    
 
-    const currentUser = user;
+    const currentUser = User;
     const jwtToken = await generateJWTToken(currentUser);
     jwtTokennn = jwtToken
     let redirectURL = `${frontendUrl}/`;

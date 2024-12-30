@@ -9,6 +9,7 @@ export const user = pgTable("user", {
   name : varchar("name",{length:255}),
   profileImg : varchar("profileImg"),
   info : varchar("info"),
+  refresh_token: varchar("refresh_token"),
 });
 
 

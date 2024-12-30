@@ -14,6 +14,7 @@ const SCOPES = [
   'https://www.googleapis.com/auth/drive.metadata.readonly'
 ];
 
+
 interface GoogleAccessTokenResponse {
   access_token: string;
   expires_in: number;
@@ -21,6 +22,8 @@ interface GoogleAccessTokenResponse {
   refresh_token?: string;
   scope: string;
 }
+
+
 
 export const fetchGoogleAccessToken = async (code: string) => {
   const CLIENT_ID = process.env.CLIENT_ID;
@@ -38,31 +41,23 @@ export const fetchGoogleAccessToken = async (code: string) => {
       client_secret: CLIENT_SECRET,
       grant_type: "authorization_code",
       redirect_uri: REDIRECT_URI,
+      access_type: "offline",
       scope: SCOPES.join(" "),
     },
   });
 };
 
-// interface GoogleUserInfoResponse {
-//   id: string;
-//   email: string;
-//   verified_email: boolean;
-//   name: string;
-//   given_name: string;
-//   family_name: string;
-//   picture: string;
-// }
+
 
 export const fetchGoogleUserInfo = async (accessToken: string) => {
-  
   return await axios.get(GOOGLE_USER_INFO_URL, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
   });
-
-
 };
+
+
 
 interface User{
   id:string,

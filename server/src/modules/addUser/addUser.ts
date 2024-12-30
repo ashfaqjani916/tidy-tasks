@@ -6,7 +6,8 @@ interface User{
   email:string,
   name:string,
   picture:string,
-  info:string |null
+  info:string |null,
+  refresh_token:string
 }
 
 export const addUser = async(User :User)=>{
@@ -17,6 +18,7 @@ export const addUser = async(User :User)=>{
   email: User.email,
   name:User.name,
   profileImg: User.picture,
+  refresh_token: User.refresh_token
   // info: JSON.stringify(User.info),
 }
  );

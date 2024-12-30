@@ -33,6 +33,7 @@ const Login = () => {
       state: new URLSearchParams({
         redirect_uri: import.meta.env.VITE_REDIRECT_URI as string,
       }).toString(),
+      access_type: "offline",
     })
 
 

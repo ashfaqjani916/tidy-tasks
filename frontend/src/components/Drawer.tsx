@@ -23,6 +23,11 @@ export default function TemporaryDrawer() {
     setOpen(newOpen);
   };
 
+  const logoutHandle = () => {
+    localStorage.removeItem("authToken");
+    window.location.href = `http://localhost:5173`
+  }
+
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
 
@@ -64,7 +69,9 @@ export default function TemporaryDrawer() {
       <Button onClick={toggleDrawer(true)} ><FiMenu className='h-12 w-12 text-primary ' /></Button>
       <Drawer open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
+        <Button className=' mt-96' onClick={logoutHandle} >logout</Button>
       </Drawer>
+
     </div>
   );
 }
